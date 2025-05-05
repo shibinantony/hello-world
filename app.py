@@ -50,12 +50,16 @@ def index():
                 border: 1px solid #ddd;
                 border-radius: 5px;
                 max-width: 100%; /* Ensure content is responsive */
-                height: auto;
+                height: auto; /* Adjusted for iframe aspect ratio */
             }
             iframe { /* Specific iframe height adjustment */
-                aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
-                 width: 560px; /* Example width, adjust as needed */
+                /* Original width: 560, Original height: 315 (16:9 aspect ratio) */
+                /* New width (560 * 1.4) = 784 */
+                /* New height (315 * 1.4) = 441 */
+                 width: 784px; /* Updated width */
+                 height: 441px; /* Updated height */
                  max-width: 100%;
+                 aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
             }
         </style>
     </head>
@@ -64,7 +68,7 @@ def index():
             <h1>Shibin is working on it.</h1>
             <p>Check back later for updates!</p>
 
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AyzJyWGqm0c?si=oEckVtcRg3zhFTwT&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="784" height="441" src="https://www.youtube-nocookie.com/embed/AyzJyWGqm0c?si=oEckVtcRg3zhFTwT&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <img src="https://centralofsuccess.com/wp-content/uploads/2017/11/There-is-simply-no-substitute-for-hard-work-when-it-comes-to-achieving-success..png" alt="Placeholder Image 1">
             <img src="https://theinspiringjournal.com/wp-content/uploads/2023/04/keep-working-hard-quotes.jpg" alt="Placeholder Image 2">
