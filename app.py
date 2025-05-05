@@ -15,8 +15,6 @@ def index():
     It now returns HTML content including random images and a message.
     """
     # HTML content to display
-    # We'll use Placehold.co to get random placeholder images.
-    # You can change the dimensions (e.g., 400x300) or add text to the images.
     html_content = """
     <!DOCTYPE html>
     <html lang="en">
@@ -47,12 +45,17 @@ def index():
                 color: #555;
                 margin-bottom: 20px;
             }
-            img {
+            img, iframe { /* Added iframe styling */
                 margin: 10px;
                 border: 1px solid #ddd;
                 border-radius: 5px;
-                max-width: 100%; /* Ensure images are responsive */
+                max-width: 100%; /* Ensure content is responsive */
                 height: auto;
+            }
+            iframe { /* Specific iframe height adjustment */
+                aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
+                 width: 560px; /* Example width, adjust as needed */
+                 max-width: 100%;
             }
         </style>
     </head>
@@ -60,6 +63,9 @@ def index():
         <div class="container">
             <h1>Shibin is working on it.</h1>
             <p>Check back later for updates!</p>
+
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AyzJyWGqm0c?si=oEckVtcRg3zhFTwT&amp;start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
             <img src="https://centralofsuccess.com/wp-content/uploads/2017/11/There-is-simply-no-substitute-for-hard-work-when-it-comes-to-achieving-success..png" alt="Placeholder Image 1">
             <img src="https://theinspiringjournal.com/wp-content/uploads/2023/04/keep-working-hard-quotes.jpg" alt="Placeholder Image 2">
             <img src="https://placehold.co/400x250/3357FF/white?text=Image+3" alt="Placeholder Image 3">
@@ -71,16 +77,8 @@ def index():
 
 # This block allows you to run the Flask application directly from the Python script
 # using `python app.py`.
-# When deploying to production environments like Azure App Services,
-# a production-ready WSGI server (like Gunicorn) will typically run your app,
-# and this block will not be executed.
 if __name__ == '__main__':
     # Run the Flask development server.
-    # host='0.0.0.0' makes the server accessible externally (useful in some deployment scenarios,
-    # though Azure handles this differently).
-    # port=8080 is a common port for web applications, but on Azure,
-    # the port is usually specified by the environment variable PORT.
-    # For local testing, 8080 is fine.
     # For production on Azure, you would typically rely on the WSGI server (Gunicorn)
     # to bind to the correct port specified by Azure.
     app.run(host='0.0.0.0', port=8080)
