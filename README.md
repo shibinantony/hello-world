@@ -1,4 +1,4 @@
-# hello-world
-Just another repository
-Hello this is something new to edit and waiting for a pull request
+# Webapp
+A simple Python Repo
+Python (app.py) and Requirements (requirements.txt) are required for successful deployment
 
